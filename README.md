@@ -13,6 +13,7 @@
 
 ```
 ![Security Checks](https://github.com/{username}/{repository}/actions/workflows/codeql-analysis.yml/badge.svg)
+![Linting Checks](https://github.com/{username}/{repository}/actions/workflows/linting.yml/badge.svg)
 ![React Tests](https://github.com/{username}/{repository}/actions/workflows/node.js.yml/badge.svg)
 ![Cypress Tests](https://github.com/{username}/{repository}/actions/workflows/cypress.yml/badge.svg)
 ```
