@@ -56,21 +56,9 @@ This repository uses the [React Testing Library](https://testing-library.com/doc
 
 ## Checks Before Committing
 
-This template uses [Husky](https://typicode.github.io/husky) to verify the code before it’s committed to [git](https://git-scm.com/). The `.husky/pre-commit` file is run before a `git commit` is completed. This file configures and runs coding style, test coverage, and security check verifications prior to committing code to git.
+This template uses [Husky](https://typicode.github.io/husky) to verify the code before it’s committed to [git](https://git-scm.com/). The `.husky/pre-commit` file is run before a `git commit` is completed.
 
-[Git](https://git-scm.com/) only commits [staged](https://githowto.com/staging_and_committing) files. If [Husky](https://typicode.github.io/husky) reformatted all files whether they were [staged](https://githowto.com/staging_and_committing), or not, it would frequently change files that were not [staged](https://githowto.com/staging_and_committing).  These unstaged files would fail to be committed. To solve this problem, [Husky](https://typicode.github.io/husky) uses the [lint-staged](https://github.com/okonet/lint-staged) library to only run formatting rules against staged files. The commands that are run with [lint-staged](https://github.com/okonet/lint-staged) library are configured in the `.lintstagedrc.json` file at the root of this repository.
-
-To run [lint-staged](https://github.com/okonet/lint-staged) run the command `npm run lint-staged`.
-
-Before each commit, [Husky](https://typicode.github.io/husky) runs 5 commands:
-
-1. `npm run lint-staged` - automatically fixes all the linting rules that can be auto-resolved and reformatts files with Prettier
-2. `npm run test:coverage` - runs all the tests and checks the coverage threshold
-3. `npm run lint` - checks the code against all of the linting rules
-4. `npm run secretlint` - checks for secrets within the code
-5. `npm run audit` - checks for package vulnerabilities
-
-Note: [Cypress](https://www.cypress.io/) tests are not run by [Husky](https://typicode.github.io/husky) prior to a commit because they are slow.  Once your code is pushed up to GitHub, the [Cypress](https://www.cypress.io/) tests will be run as part of the [GitHub Actions](https://docs.github.com/en/actions) [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) build.
+Before each commit, [Husky](https://typicode.github.io/husky) checks for secrets within the code.  If a secret is found it will stop the commit and will require the secret to be removed from the commit.  Committing secrets is a very common mistake and must be avoided.
 
 ## Continuous Integration Builds
 This template uses [GitHub Actions](https://docs.github.com/en/actions) to run [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) builds after each push and pull request within GitHub.
@@ -78,3 +66,4 @@ This template uses [GitHub Actions](https://docs.github.com/en/actions) to run [
 - `.github/workflows/codeql-analysis.yml` sets up [code scanning](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning) for your repository.
 - `.github/workflows/node.js.yml` runs tests against your code.
 - `.github/workflows/cypress.yml` runs cypress tests against your code.
+- `.github/workflows/linting.yml` runs [ESLint](https://nextjs.org/docs/pages/building-your-application/configuring/eslint) against the code along with [secretlint](https://github.com/secretlint/secretlint)
