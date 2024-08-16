@@ -23,5 +23,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm lint
-    - run: npm secretlint
+    - run: npm run lint
+    - run: npm run secretlint
