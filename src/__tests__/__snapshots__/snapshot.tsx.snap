@@ -2,8 +2,16 @@
 
 exports[`renders homepage unchanged 1`] = `
 <div>
-  <h1>
-    TDD Next Template
-  </h1>
+  <html
+    lang="en"
+  >
+    <body
+      class="className"
+    >
+      <h1>
+        TDD Next Template
+      </h1>
+    </body>
+  </html>
 </div>
 `;
